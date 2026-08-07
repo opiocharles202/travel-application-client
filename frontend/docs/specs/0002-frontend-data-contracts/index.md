@@ -1,7 +1,7 @@
 # 0002. Frontend data contracts for the core quote to purchase loop
 
 **Date**: 2026-08-07
-**Status**: Proposed
+**Status**: In Progress
 
 ## Summary
 
@@ -121,6 +121,8 @@ The frontend gets one contracts module (Zod schemas plus inferred types) coverin
 10. Wire ownership checks (403 on mismatch) into every owner scoped mock handler; leave available plans public, satisfies **AC-7**.
 11. Wire `VITE_ENABLE_MOCKS` to start/stop the MSW server at app boot (browser) and in the Vitest setup file (test), satisfies **AC-3**.
 12. Write unit tests for every schema (valid input parses, malformed input throws) and for the mock layer's auth/ownership and timeout/failure behavior, satisfies **AC-8**.
+
+All 12 tasks built. Code in `src/lib/contracts/`, `src/lib/api/travel.ts`, `src/mocks/`. 30/30 tests passing (`npm run test:unit`); typecheck, lint, and build all clean.
 
 ## Consequences
 

@@ -65,13 +65,13 @@ code in `frontend/AGENTS.md`, `frontend/package.json`, `frontend/scripts/install
 TypeScript types for every payload this frontend sends/receives, matching the backend developer's planned NestJS surface (REVERSE_ENGINEERING.pdf §6, §12, §13: quotations, travelers, plans, payment transactions, contracts, admin/broker resources). Includes a mock/dev server strategy so frontend work isn't blocked on backend delivery.
 **Done when:** every entity in the core loop (quote, plan, traveler, payment transaction, contract) has a typed contract, and the app can run fully against mocks with no live backend.
 - [x] Design it (spec): `/architect frontend data contracts`
-- [ ] Build it: `/develop frontend data contracts`
-   - [ ] Zod schemas + inferred types for all 6 entities (Quote, Traveler, Plan, PaymentTransaction, Contract, Country)
-   - [ ] 5 typed API functions on `apiClient`, plus MSW mock handlers for all 5 endpoints
-   - [ ] Edge cases wired: expired selection token, payment timeout, contract issuance failure, ownership checks
+- [x] Build it: `/develop frontend data contracts`
+   - [x] Zod schemas + inferred types for all 6 entities (Quote, Traveler, Plan, PaymentTransaction, Contract, Country)
+   - [x] 5 typed API functions on `apiClient`, plus MSW mock handlers for all 5 endpoints
+   - [x] Edge cases wired: expired selection token, payment timeout, contract issuance failure, ownership checks
 - [ ] Verify it: `/check verify frontend data contracts`
 - [ ] Test it: `/test frontend data contracts`
-Spec 0002 · code (filled by /develop)
+Spec 0002 · code in `frontend/src/lib/contracts/`, `frontend/src/lib/api/travel.ts`, `frontend/src/mocks/`
 
 ### 4. Design system & UI foundation
 Token set from REVERSE_ENGINEERING.pdf §9 (navy #003764 primary, gold #866000 accent, status colors, Roboto public / Source Sans Pro admin) plus base components (button, input, select, modal, table, toast, stepper) shared across public/admin/broker.

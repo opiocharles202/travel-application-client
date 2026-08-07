@@ -5,6 +5,11 @@ import { BrowserRouter } from 'react-router'
 import './index.css'
 import App from './App.tsx'
 import { queryClient } from './lib/query-client.ts'
+import { enableMockingIfConfigured } from './mocks/enable.ts'
+
+// Must resolve before the first render, so no data-fetching component can
+// race the mock worker's registration (spec 0002).
+await enableMockingIfConfigured()
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

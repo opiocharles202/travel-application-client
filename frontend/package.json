@@ -16,6 +16,11 @@
     "audit:ci": "npm audit --audit-level=high",
     "prepare": "node scripts/install-git-hooks.mjs"
   },
+  "msw": {
+    "workerDirectory": [
+      "public"
+    ]
+  },
   "lint-staged": {
     "*.{ts,tsx}": [
       "eslint --fix",
@@ -59,10 +64,14 @@
     "globals": "^17.7.0",
     "jsdom": "^30.0.1",
     "lint-staged": "^17.3.0",
+    "msw": "^2.15.0",
     "prettier": "^3.9.6",
     "typescript": "~6.0.2",
     "typescript-eslint": "^8.65.0",
     "vite": "^8.2.0",
     "vitest": "^4.1.10"
+  },
+  "allowScripts": {
+    "msw@2.15.0": true
   }
 }
