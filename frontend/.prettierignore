@@ -1,0 +1,21 @@
+dist
+coverage
+playwright-report
+test-results
+node_modules
+package-lock.json
+
+# Vendored workflow tooling and its docs; not this project's source
+.agents/
+
+# Hand-authored project docs, scope, and specs; formatting churns these
+# unnecessarily and specs/scope are written to specific formatting rules
+docs/
+
+# Root markdown docs
+README.md
+AGENTS.md
+CLAUDE.md
+
+# Lockfiles managed by other tools
+skills-lock.json

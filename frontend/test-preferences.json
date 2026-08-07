@@ -1,7 +1,11 @@
 {
   "tool": "vitest",
   "gate": null,
-  "additionalTools": ["@testing-library/react", "@testing-library/user-event", "@testing-library/jest-dom"],
+  "additionalTools": [
+    "@testing-library/react",
+    "@testing-library/user-event",
+    "@testing-library/jest-dom"
+  ],
   "e2eTool": "playwright",
   "testDir": "beside source (src/), e2e/ for Playwright",
   "filePattern": "*.test.ts, *.test.tsx (unit/component), *.spec.ts (e2e)",

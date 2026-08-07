@@ -116,12 +116,24 @@ function withOptions(
 export const apiClient = {
   get: <TSchema extends z.ZodType>(path: string, schema: TSchema, signal?: AbortSignal) =>
     request(path, schema, withOptions('GET', undefined, signal)),
-  post: <TSchema extends z.ZodType>(path: string, schema: TSchema, body?: unknown, signal?: AbortSignal) =>
-    request(path, schema, withOptions('POST', body, signal)),
-  put: <TSchema extends z.ZodType>(path: string, schema: TSchema, body?: unknown, signal?: AbortSignal) =>
-    request(path, schema, withOptions('PUT', body, signal)),
-  patch: <TSchema extends z.ZodType>(path: string, schema: TSchema, body?: unknown, signal?: AbortSignal) =>
-    request(path, schema, withOptions('PATCH', body, signal)),
+  post: <TSchema extends z.ZodType>(
+    path: string,
+    schema: TSchema,
+    body?: unknown,
+    signal?: AbortSignal,
+  ) => request(path, schema, withOptions('POST', body, signal)),
+  put: <TSchema extends z.ZodType>(
+    path: string,
+    schema: TSchema,
+    body?: unknown,
+    signal?: AbortSignal,
+  ) => request(path, schema, withOptions('PUT', body, signal)),
+  patch: <TSchema extends z.ZodType>(
+    path: string,
+    schema: TSchema,
+    body?: unknown,
+    signal?: AbortSignal,
+  ) => request(path, schema, withOptions('PATCH', body, signal)),
   delete: <TSchema extends z.ZodType>(path: string, schema: TSchema, signal?: AbortSignal) =>
     request(path, schema, withOptions('DELETE', undefined, signal)),
 }
