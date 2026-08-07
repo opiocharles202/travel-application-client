@@ -1,5 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it } from 'vitest'
-import { setAccessToken } from '../lib/api-client'
+import { http, HttpResponse } from 'msw'
+import { ApiValidationError, setAccessToken } from '../lib/api-client'
 import {
   createQuote,
   getAvailablePlans,
@@ -9,6 +10,7 @@ import {
   SelectionTokenExpiredError,
 } from '../lib/api/travel'
 import { OTHER_OWNER_ID, mockStore } from './store'
+import { server } from './server'
 
 /**
  * Exercises the mock layer through the real apiClient / API functions
@@ -189,5 +191,17 @@ describe('core loop mock handlers', () => {
     setAccessToken(null)
     const plans = await getAvailablePlans(buildAvailablePlansRequest())
     expect(plans.length).toBeGreaterThan(0)
+  })
+
+  it('AC-2: a response that violates its schema throws ApiValidationError through the real network path, never a silently accepted value', async () => {
+    server.use(
+      http.post('*/travel/available-plans', () =>
+        HttpResponse.json([{ id: 'p1', planCode: 'WORLDWIDE_SILVER' }]),
+      ),
+    )
+
+    await expect(getAvailablePlans(buildAvailablePlansRequest())).rejects.toBeInstanceOf(
+      ApiValidationError,
+    )
   })
 })

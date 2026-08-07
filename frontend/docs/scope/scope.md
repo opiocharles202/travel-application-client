@@ -70,7 +70,7 @@ TypeScript types for every payload this frontend sends/receives, matching the ba
    - [x] 5 typed API functions on `apiClient`, plus MSW mock handlers for all 5 endpoints
    - [x] Edge cases wired: expired selection token, payment timeout, contract issuance failure, ownership checks
 - [x] Verify it: `/check verify frontend data contracts`
-- [ ] Test it: `/test frontend data contracts`
+- [x] Test it: `/test frontend data contracts`
 Spec 0002 · code in `frontend/src/lib/contracts/`, `frontend/src/lib/api/travel.ts`, `frontend/src/mocks/`
 
 ### 4. Design system & UI foundation
