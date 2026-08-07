@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--
+      Baseline CSP (spec 0001). A meta tag is the SPA-appropriate mechanism
+      until hosting is decided; if the eventual host can send a CSP response
+      header instead, prefer that (it also covers report-only violations
+      the meta tag cannot). connect-src must list the real API origin per
+      environment once VITE_API_BASE_URL is known outside dev.
+    -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' http://localhost:*; object-src 'none'; base-uri 'self'; frame-ancestors 'none'"
+    />
+    <title>frontend</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
