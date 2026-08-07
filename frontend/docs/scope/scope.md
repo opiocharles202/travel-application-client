@@ -16,7 +16,7 @@ _You are in charge. Every box below is a **suggestion**, not a gate: run any, sk
 | # | Feature | Phase | Status |
 |---|---------|-------|--------|
 | 1 | Stack & architecture | Foundation | done |
-| 2 | Coding standards & tooling | Foundation | planned |
+| 2 | Coding standards & tooling | Foundation | done |
 | 3 | Frontend data contracts (API types & mocking) | Foundation | planned |
 | 4 | Design system & UI foundation | Foundation | planned |
 | 5 | App shell & role-based routing | Foundation | planned |
@@ -53,7 +53,7 @@ Decide the React stack (routing, data fetching, forms, state, styling) and scaff
 - [x] Test it: `/test stack & architecture`
 Spec 0001 · code in `frontend/src/`, `frontend/vite.config.ts`, `frontend/.github/`
 
-### 2. Coding standards & tooling · in-progress
+### 2. Coding standards & tooling · done
 Capture conventions (component structure, naming, folder layout, commit hygiene) and install lint/format/pre-commit enforcement from the real scaffolded project.
 **Done when:** root `AGENTS.md` reflects the real stack, and lint/format/pre-commit run clean.
 - [x] Capture conventions + tooling choices: `/audit`
