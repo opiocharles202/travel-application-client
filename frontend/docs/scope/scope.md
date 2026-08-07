@@ -53,12 +53,13 @@ Decide the React stack (routing, data fetching, forms, state, styling) and scaff
 - [x] Test it: `/test stack & architecture`
 Spec 0001 · code in `frontend/src/`, `frontend/vite.config.ts`, `frontend/.github/`
 
-### 2. Coding standards & tooling
+### 2. Coding standards & tooling · in-progress
 Capture conventions (component structure, naming, folder layout, commit hygiene) and install lint/format/pre-commit enforcement from the real scaffolded project.
 **Done when:** root `AGENTS.md` reflects the real stack, and lint/format/pre-commit run clean.
-- [ ] Capture conventions + tooling choices: `/audit`
-- [ ] Install the tooling: `/develop tooling`
-- [ ] Check it runs clean: `/test`
+- [x] Capture conventions + tooling choices: `/audit`
+- [x] Install the tooling: `/develop tooling`
+- [x] Check it runs clean: `/test`
+code in `frontend/AGENTS.md`, `frontend/package.json`, `frontend/scripts/install-git-hooks.mjs`
 
 ### 3. Frontend data contracts (API types & mocking)
 TypeScript types for every payload this frontend sends/receives, matching the backend developer's planned NestJS surface (REVERSE_ENGINEERING.pdf §6, §12, §13: quotations, travelers, plans, payment transactions, contracts, admin/broker resources). Includes a mock/dev server strategy so frontend work isn't blocked on backend delivery.

@@ -55,7 +55,7 @@ Stored in `docs/specs/`. Format: `docs/specs/NNNN-title.md` or `docs/specs/NNNN-
 ## Tooling
 
 - **Lint & format**: ESLint (flat config, `eslint.config.js`) with `eslint-plugin-security` for security-aware rules on top of `typescript-eslint` and the React hooks/refresh plugins.
-- **Pre-commit**: lint + format + typecheck must run before every commit. Not yet wired as an actual git hook; installing this (husky or simple-git-hooks + lint-staged, or an equivalent) is the next `/develop tooling` task.
+- **Pre-commit**: lint-staged (ESLint + Prettier on staged files) then a full `typecheck`, wired via the `prepare` npm script (`frontend/scripts/install-git-hooks.mjs`). `simple-git-hooks` doesn't work here because `.git` lives at the project root, one level above `frontend/`'s `package.json`, so its own path auto-detection resolves nothing; the script writes the hook to the real git hooks directory directly. Run `npm run prepare` manually after a fresh clone if hooks aren't active yet.
 - **Testing gate**: Vitest + React Testing Library for unit/component, Playwright for end to end (`e2e/`). Configured in `vite.config.ts` (`test` block) and `playwright.config.ts`.
 - **CI**: `.github/workflows/frontend-ci.yml` runs on every push/PR touching `frontend/`: `npm audit --audit-level=high` (gates everything else), then lint + build, then unit tests, in parallel after the audit passes.
 - **Dependency updates**: Dependabot (`.github/dependabot.yml`), weekly, for both the `frontend/` npm ecosystem and GitHub Actions.
