@@ -17,7 +17,7 @@ _You are in charge. Every box below is a **suggestion**, not a gate: run any, sk
 |---|---------|-------|--------|
 | 1 | Stack & architecture | Foundation | done |
 | 2 | Coding standards & tooling | Foundation | done |
-| 3 | Frontend data contracts (API types & mocking) | Foundation | planned |
+| 3 | Frontend data contracts (API types & mocking) | Foundation | in-progress |
 | 4 | Design system & UI foundation | Foundation | planned |
 | 5 | App shell & role-based routing | Foundation | planned |
 | 6 | Core quote-to-purchase loop (client) | Slice 1 | planned |
@@ -61,10 +61,17 @@ Capture conventions (component structure, naming, folder layout, commit hygiene)
 - [x] Check it runs clean: `/test`
 code in `frontend/AGENTS.md`, `frontend/package.json`, `frontend/scripts/install-git-hooks.mjs`
 
-### 3. Frontend data contracts (API types & mocking)
+### 3. Frontend data contracts (API types & mocking) · in-progress
 TypeScript types for every payload this frontend sends/receives, matching the backend developer's planned NestJS surface (REVERSE_ENGINEERING.pdf §6, §12, §13: quotations, travelers, plans, payment transactions, contracts, admin/broker resources). Includes a mock/dev server strategy so frontend work isn't blocked on backend delivery.
 **Done when:** every entity in the core loop (quote, plan, traveler, payment transaction, contract) has a typed contract, and the app can run fully against mocks with no live backend.
-- [ ] Design it (spec): `/architect frontend data contracts`
+- [x] Design it (spec): `/architect frontend data contracts`
+- [ ] Build it: `/develop frontend data contracts`
+   - [ ] Zod schemas + inferred types for all 6 entities (Quote, Traveler, Plan, PaymentTransaction, Contract, Country)
+   - [ ] 5 typed API functions on `apiClient`, plus MSW mock handlers for all 5 endpoints
+   - [ ] Edge cases wired: expired selection token, payment timeout, contract issuance failure, ownership checks
+- [ ] Verify it: `/check verify frontend data contracts`
+- [ ] Test it: `/test frontend data contracts`
+Spec 0002 · code (filled by /develop)
 
 ### 4. Design system & UI foundation
 Token set from REVERSE_ENGINEERING.pdf §9 (navy #003764 primary, gold #866000 accent, status colors, Roboto public / Source Sans Pro admin) plus base components (button, input, select, modal, table, toast, stepper) shared across public/admin/broker.
