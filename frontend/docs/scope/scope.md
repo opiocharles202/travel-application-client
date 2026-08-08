@@ -17,7 +17,7 @@ _You are in charge. Every box below is a **suggestion**, not a gate: run any, sk
 |---|---------|-------|--------|
 | 1 | Stack & architecture | Foundation | done |
 | 2 | Coding standards & tooling | Foundation | done |
-| 3 | Frontend data contracts (API types & mocking) | Foundation | in-progress |
+| 3 | Frontend data contracts (API types & mocking) | Foundation | done |
 | 4 | Design system & UI foundation | Foundation | planned |
 | 5 | App shell & role-based routing | Foundation | planned |
 | 6 | Core quote-to-purchase loop (client) | Slice 1 | planned |
@@ -61,7 +61,7 @@ Capture conventions (component structure, naming, folder layout, commit hygiene)
 - [x] Check it runs clean: `/test`
 code in `frontend/AGENTS.md`, `frontend/package.json`, `frontend/scripts/install-git-hooks.mjs`
 
-### 3. Frontend data contracts (API types & mocking) · in-progress
+### 3. Frontend data contracts (API types & mocking) · done
 TypeScript types for every payload this frontend sends/receives, matching the backend developer's planned NestJS surface (REVERSE_ENGINEERING.pdf §6, §12, §13: quotations, travelers, plans, payment transactions, contracts, admin/broker resources). Includes a mock/dev server strategy so frontend work isn't blocked on backend delivery.
 **Done when:** every entity in the core loop (quote, plan, traveler, payment transaction, contract) has a typed contract, and the app can run fully against mocks with no live backend.
 - [x] Design it (spec): `/architect frontend data contracts`
