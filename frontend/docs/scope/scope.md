@@ -81,7 +81,7 @@ Token set from REVERSE_ENGINEERING.pdf §9 (navy #003764 primary, gold #866000 a
    - [x] CSS custom property tokens wired through Tailwind v4 `@theme`, matching REVERSE_ENGINEERING.pdf §9.1 exactly
    - [x] Button, Input, Select, Modal, Toast, Stepper, Table primitives, each with a density variant, built on the spec 0001 Radix primitives
    - [x] Accessibility rules enforced (focus ring, 4.5:1 contrast, keyboard operability, screen-reader error announcement) plus a component demo/catalog route
-- [ ] Verify it: `/check verify design system & UI foundation`
+- [x] Verify it: `/check verify design system & UI foundation`
 - [ ] Test it: `/test design system & UI foundation`
 code in `frontend/src/index.css`, `frontend/design.md`, `frontend/src/components/ui/`, `frontend/src/pages/ComponentCatalog.tsx`
 Spec 0003 · code (filled by /develop)
