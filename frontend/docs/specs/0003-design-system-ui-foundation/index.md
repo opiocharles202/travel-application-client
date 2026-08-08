@@ -1,7 +1,7 @@
 # 0003. Design system and UI foundation
 
 **Date**: 2026-08-07
-**Status**: In Progress
+**Status**: Accepted
 
 ## Summary
 
@@ -113,7 +113,9 @@ Tokens defined as CSS custom properties in `src/index.css` (already the Tailwind
 11. Build a demo/catalog route rendering every component in both density variants, satisfies **AC-9**.
 12. Write tests: a render/interaction test per component (focus, keyboard operability, error state where applicable), and an automated contrast check for the documented token pairings, satisfies **AC-5, AC-6, AC-7**.
 
-All 12 tasks built. Code in `src/index.css`, `design.md`, `src/components/ui/`, `src/pages/ComponentCatalog.tsx`. 58/58 tests passing (`npm run test:unit`); typecheck, lint, build, and the e2e smoke test all clean.
+All 12 tasks built. Code in `src/index.css`, `design.md`, `src/components/ui/`, `src/pages/ComponentCatalog.tsx`. 70/70 tests passing (`npm run test:unit`); typecheck, lint, build, and the e2e smoke test all clean. Verified live in a real browser (`/check verify`): all 9 acceptance criteria confirmed with cited DOM/computed-style evidence from a fresh dev server run.
+
+`/test` found Modal, Table, and Toast had zero test coverage despite `/check verify` passing (verify only drives the one catalog page, it doesn't guarantee every component file has its own test). Added dedicated suites for all three (12 more tests), which also surfaced a real jsdom gap: Radix's Toast swipe-to-dismiss calls the Pointer Events capture API, which jsdom doesn't implement, throwing an unhandled exception even though the assertions themselves passed. Fixed with a `hasPointerCapture`/`setPointerCapture`/`releasePointerCapture` polyfill in `src/test/setup.ts`, project-wide (any future Radix component hitting the same gap is now covered).
 
 Two real gaps were caught during the actual contrast verification (AC-6), not assumed from the raw hex values the spec named: rendering `--color-success` or `--color-warning` as plain text on white fails WCAG AA (3.13:1 and 1.63:1); both now pair with `--color-on-success`/`--color-on-warning` (`--color-primary-dark`, 5.46:1 and 10.50:1) instead. And the initial `disabled:opacity-50` pattern on the Button/Input/Select components measured ~2.13:1 on the gold accent button, well under AA; replaced with dedicated `--color-disabled-bg`/`--color-disabled-text` tokens (9.13:1) used uniformly regardless of variant. Both are locked in by `src/lib/contrast.test.ts` so a future edit to the raw token values can't silently regress either.
 
