@@ -18,7 +18,7 @@ _You are in charge. Every box below is a **suggestion**, not a gate: run any, sk
 | 1 | Stack & architecture | Foundation | done |
 | 2 | Coding standards & tooling | Foundation | done |
 | 3 | Frontend data contracts (API types & mocking) | Foundation | done |
-| 4 | Design system & UI foundation | Foundation | in-progress |
+| 4 | Design system & UI foundation | Foundation | done |
 | 5 | App shell & role-based routing | Foundation | planned |
 | 6 | Core quote-to-purchase loop (client) | Slice 1 | planned |
 | 7 | Mobile-money payment & status polling | Slice 2 | planned |
@@ -73,7 +73,7 @@ TypeScript types for every payload this frontend sends/receives, matching the ba
 - [x] Test it: `/test frontend data contracts`
 Spec 0002 · code in `frontend/src/lib/contracts/`, `frontend/src/lib/api/travel.ts`, `frontend/src/mocks/`
 
-### 4. Design system & UI foundation · in-progress
+### 4. Design system & UI foundation · done
 Token set from REVERSE_ENGINEERING.pdf §9 (navy #003764 primary, gold #866000 accent, status colors, Roboto public / Source Sans Pro admin) plus base components (button, input, select, modal, table, toast, stepper) shared across public/admin/broker.
 **Done when:** design tokens are centralized (not hardcoded hex per component), and base components handle focus/keyboard states.
 - [x] Design it (spec): `/architect design system & UI foundation`
