@@ -77,12 +77,13 @@ Spec 0002 · code in `frontend/src/lib/contracts/`, `frontend/src/lib/api/travel
 Token set from REVERSE_ENGINEERING.pdf §9 (navy #003764 primary, gold #866000 accent, status colors, Roboto public / Source Sans Pro admin) plus base components (button, input, select, modal, table, toast, stepper) shared across public/admin/broker.
 **Done when:** design tokens are centralized (not hardcoded hex per component), and base components handle focus/keyboard states.
 - [x] Design it (spec): `/architect design system & UI foundation`
-- [ ] Build it: `/develop design system & UI foundation`
-   - [ ] CSS custom property tokens wired through Tailwind v4 `@theme`, matching REVERSE_ENGINEERING.pdf §9.1 exactly
-   - [ ] Button, Input, Select, Modal, Toast, Stepper, Table primitives, each with a density variant, built on the spec 0001 Radix primitives
-   - [ ] Accessibility rules enforced (focus ring, 4.5:1 contrast, keyboard operability, screen-reader error announcement) plus a component demo/catalog route
+- [x] Build it: `/develop design system & UI foundation`
+   - [x] CSS custom property tokens wired through Tailwind v4 `@theme`, matching REVERSE_ENGINEERING.pdf §9.1 exactly
+   - [x] Button, Input, Select, Modal, Toast, Stepper, Table primitives, each with a density variant, built on the spec 0001 Radix primitives
+   - [x] Accessibility rules enforced (focus ring, 4.5:1 contrast, keyboard operability, screen-reader error announcement) plus a component demo/catalog route
 - [ ] Verify it: `/check verify design system & UI foundation`
 - [ ] Test it: `/test design system & UI foundation`
+code in `frontend/src/index.css`, `frontend/design.md`, `frontend/src/components/ui/`, `frontend/src/pages/ComponentCatalog.tsx`
 Spec 0003 · code (filled by /develop)
 
 ### 5. App shell & role-based routing

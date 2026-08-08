@@ -1,7 +1,7 @@
 # 0003. Design system and UI foundation
 
 **Date**: 2026-08-07
-**Status**: Proposed
+**Status**: In Progress
 
 ## Summary
 
@@ -112,6 +112,10 @@ Tokens defined as CSS custom properties in `src/index.css` (already the Tailwind
 10. Install `lucide-react`; replace any placeholder icon usage (none currently exist, this establishes the pattern for all future icon usage), satisfies **AC-8**.
 11. Build a demo/catalog route rendering every component in both density variants, satisfies **AC-9**.
 12. Write tests: a render/interaction test per component (focus, keyboard operability, error state where applicable), and an automated contrast check for the documented token pairings, satisfies **AC-5, AC-6, AC-7**.
+
+All 12 tasks built. Code in `src/index.css`, `design.md`, `src/components/ui/`, `src/pages/ComponentCatalog.tsx`. 58/58 tests passing (`npm run test:unit`); typecheck, lint, build, and the e2e smoke test all clean.
+
+Two real gaps were caught during the actual contrast verification (AC-6), not assumed from the raw hex values the spec named: rendering `--color-success` or `--color-warning` as plain text on white fails WCAG AA (3.13:1 and 1.63:1); both now pair with `--color-on-success`/`--color-on-warning` (`--color-primary-dark`, 5.46:1 and 10.50:1) instead. And the initial `disabled:opacity-50` pattern on the Button/Input/Select components measured ~2.13:1 on the gold accent button, well under AA; replaced with dedicated `--color-disabled-bg`/`--color-disabled-text` tokens (9.13:1) used uniformly regardless of variant. Both are locked in by `src/lib/contrast.test.ts` so a future edit to the raw token values can't silently regress either.
 
 ## Consequences
 
