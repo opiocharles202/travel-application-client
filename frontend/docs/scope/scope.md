@@ -19,7 +19,7 @@ _You are in charge. Every box below is a **suggestion**, not a gate: run any, sk
 | 2 | Coding standards & tooling | Foundation | done |
 | 3 | Frontend data contracts (API types & mocking) | Foundation | done |
 | 4 | Design system & UI foundation | Foundation | done |
-| 5 | App shell & role-based routing | Foundation | planned |
+| 5 | App shell & role-based routing | Foundation | in-progress |
 | 6 | Core quote-to-purchase loop (client) | Slice 1 | planned |
 | 7 | Mobile-money payment & status polling | Slice 2 | planned |
 | 8 | Client account: signup, login, password reset | Slice 3 | planned |
@@ -86,10 +86,17 @@ Token set from REVERSE_ENGINEERING.pdf §9 (navy #003764 primary, gold #866000 a
 code in `frontend/src/index.css`, `frontend/design.md`, `frontend/src/components/ui/`, `frontend/src/pages/ComponentCatalog.tsx`
 Spec 0003 · code (filled by /develop)
 
-### 5. App shell & role-based routing
-One `<AppShell variant="public | admin | broker | auth">` replacing the legacy app's 8 duplicate layouts (§9.4, §13). Route guard reads the auth role claim to gate `/admin` and `/broker` areas.
-**Done when:** switching between public, admin, and broker routes renders the correct shell, and an unauthenticated user is redirected away from gated areas.
-- [ ] Design it (spec): `/architect app shell & role-based routing`
+### 5. App shell & role-based routing · in-progress
+One `<AppShell variant="public | admin | broker">` replacing the legacy app's 8 duplicate layouts (§9.4, §13), plus a static per-portal nav config. Descoped on the engineer's call: no route guard, no auth/token handling in this pass; role-based gating moves to whichever feature actually implements login (client account auth is scope feature 8; admin/broker login is not yet scoped as its own feature).
+**Done when:** switching between public, admin, and broker routes renders the correct shell (header/sidebar/footer composition per design.md) with the correct static nav content.
+- [x] Design it (spec): `/architect app shell & role-based routing`
+- [ ] Build it: `/develop app shell & role-based routing`
+   - [ ] Public variant (header, content, footer) and admin/broker variant (header, sidebar, content, no footer) per design.md
+   - [ ] Static per-portal nav config, real router links with Lucide icons, active-route highlighting
+   - [ ] Keyboard operable, focus-visible sidebar nav, responsive collapse on narrow viewports
+- [ ] Verify it: `/check verify app shell & role-based routing`
+- [ ] Test it: `/test app shell & role-based routing`
+Spec 0004 · code (filled by /develop)
 
 ## Slice 1: Core quote-to-purchase loop (client)
 
