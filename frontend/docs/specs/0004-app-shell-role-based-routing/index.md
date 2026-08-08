@@ -1,7 +1,7 @@
 # 0004. App shell (public / admin / broker)
 
 **Date**: 2026-08-08
-**Status**: In Progress
+**Status**: Accepted
 
 ## Summary
 
