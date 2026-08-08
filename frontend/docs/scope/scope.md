@@ -20,7 +20,7 @@ _You are in charge. Every box below is a **suggestion**, not a gate: run any, sk
 | 3 | Frontend data contracts (API types & mocking) | Foundation | done |
 | 4 | Design system & UI foundation | Foundation | done |
 | 5 | App shell & role-based routing | Foundation | done |
-| 6 | Core quote-to-purchase loop (client) | Slice 1 | planned |
+| 6 | Core quote-to-purchase loop (client) | Slice 1 | in-progress |
 | 7 | Mobile-money payment & status polling | Slice 2 | planned |
 | 8 | Client account: signup, login, password reset | Slice 3 | planned |
 | 9 | Client purchases history & policy detail | Slice 4 | planned |
@@ -101,10 +101,17 @@ Spec 0004 · code (filled by /develop)
 
 ## Slice 1: Core quote-to-purchase loop (client)
 
-### 6. Core quote-to-purchase loop (client)
-The walking skeleton: the 5-step public wizard end to end on real (or mocked-to-contract) data — itinerary entry → plan selection (calls the pricing/plans endpoint) → traveler details (dynamic rows) → billing/account gate → confirmation and quote creation. This is the thinnest real thread through every layer; payment and account creation are stubbed to their real contracts here and thickened in Slices 2 and 3.
+### 6. Core quote-to-purchase loop (client) · in-progress
+The walking skeleton: the 5-step public wizard end to end on real (mocked-to-contract) data — itinerary entry → plan selection (calls the pricing/plans endpoint) → billing/account gate (guest checkout, no auth exists yet) → traveler details (dynamic rows) → confirmation and quote creation. This is the thinnest real thread through every layer; payment and real account creation are stubbed to their real contracts here and thickened in Slices 2 and 3.
 **Done when:** a user can enter an itinerary, see priced plans, add traveler details, and reach a confirmation screen that has created a real quotation record against the data contracts from Feature 3.
-- [ ] Design it (spec): `/architect core quote-to-purchase loop`
+- [x] Design it (spec): `/architect core quote-to-purchase loop`
+- [ ] Build it: `/develop core quote-to-purchase loop`
+   - [ ] QuoteWizard shell (Stepper + one RHF instance) inside AppShell, steps 1-2 (itinerary, plan selection) wired to getAvailablePlans
+   - [ ] Steps 3-4 (guest billing, traveler details) and step 5 (confirmation) wired to createQuote, including the expired-token recovery state
+   - [ ] Itinerary-change clears stale plan selection; full keyboard operability across all 5 steps
+- [ ] Verify it: `/check verify core quote-to-purchase loop`
+- [ ] Test it: `/test core quote-to-purchase loop`
+Spec 0005 · code (filled by /develop)
 
 ## Slice 2: Mobile-money payment & status polling
 
