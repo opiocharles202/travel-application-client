@@ -90,12 +90,13 @@ Spec 0003 · code (filled by /develop)
 One `<AppShell variant="public | admin | broker">` replacing the legacy app's 8 duplicate layouts (§9.4, §13), plus a static per-portal nav config. Descoped on the engineer's call: no route guard, no auth/token handling in this pass; role-based gating moves to whichever feature actually implements login (client account auth is scope feature 8; admin/broker login is not yet scoped as its own feature).
 **Done when:** switching between public, admin, and broker routes renders the correct shell (header/sidebar/footer composition per design.md) with the correct static nav content.
 - [x] Design it (spec): `/architect app shell & role-based routing`
-- [ ] Build it: `/develop app shell & role-based routing`
-   - [ ] Public variant (header, content, footer) and admin/broker variant (header, sidebar, content, no footer) per design.md
-   - [ ] Static per-portal nav config, real router links with Lucide icons, active-route highlighting
-   - [ ] Keyboard operable, focus-visible sidebar nav, responsive collapse on narrow viewports
+- [x] Build it: `/develop app shell & role-based routing`
+   - [x] Public variant (header, content, footer) and admin/broker variant (header, sidebar, content, no footer) per design.md
+   - [x] Static per-portal nav config, real router links with Lucide icons, active-route highlighting
+   - [x] Keyboard operable, focus-visible sidebar nav, responsive collapse on narrow viewports
 - [ ] Verify it: `/check verify app shell & role-based routing`
 - [ ] Test it: `/test app shell & role-based routing`
+code in `frontend/src/components/shell/`
 Spec 0004 · code (filled by /develop)
 
 ## Slice 1: Core quote-to-purchase loop (client)

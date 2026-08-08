@@ -1,7 +1,7 @@
 # 0004. App shell (public / admin / broker)
 
 **Date**: 2026-08-08
-**Status**: Proposed
+**Status**: In Progress
 
 ## Summary
 
@@ -88,6 +88,8 @@ Sourced from the reverse engineering document's documented sitemap (section 8.2 
 6. Add the responsive sidebar collapse/toggle behavior for narrow viewports, satisfies **AC-8**.
 7. Verify keyboard operability and focus visibility across every nav link, satisfies **AC-7**.
 8. Write tests: variant composition (public vs admin vs broker), nav rendering per portal, active-item highlighting, keyboard reachability, and a narrow-viewport collapse check.
+
+All 8 tasks built. Code in `src/components/shell/`. Wired into `src/App.tsx` (public `/`, plus placeholder `/admin` and `/broker` routes proving the shell wraps real routes; the actual admin/broker screens are scope features 12-21, not built here). 79/79 tests passing (`npm run test:unit`); typecheck, lint, build, and the e2e smoke test all clean. Verified live in a real browser: all 3 variants screenshotted, the narrow-viewport sidebar collapse/toggle exercised end to end, and keyboard Tab traversal through every nav link confirmed with a visible focus ring.
 
 ## Consequences
 
